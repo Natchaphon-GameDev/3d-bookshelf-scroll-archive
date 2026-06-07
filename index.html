@@ -880,9 +880,237 @@
     transform: scale(1.15);
   }
   .tweaks .row input[type="checkbox"] { accent-color: var(--gold); }
+
+/* ============== ABOUT GATE ============== */
+.about-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--walnut-shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 8vw 4vh;
+  overflow-y: auto;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.about-gate.leaving {
+  opacity: 0;
+  transform: translateY(-18px);
+  pointer-events: none;
+}
+
+.about-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+  flex: 1;
+  align-items: start;
+  padding-top: 1vh;
+}
+
+.about-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.about-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+}
+.about-name em { font-style: italic; color: var(--gold); }
+
+.about-role {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  letter-spacing: 0.04em;
+  line-height: 1.65;
+  margin-bottom: 1.4rem;
+}
+.about-role strong { color: var(--cream); font-weight: 500; }
+
+.about-bio {
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-bottom: 2rem;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border-left: 1px solid rgba(212,160,74,0.28);
+  padding-left: 1.2rem;
+}
+.about-hl { display: flex; flex-direction: column; gap: 0.2rem; }
+.hl-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+.hl-sub { font-size: 0.73rem; color: var(--gold-soft); }
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding-top: 0.3rem;
+}
+
+.about-block-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(212,160,74,0.2);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1.8rem;
+}
+.skill-item { display: flex; flex-direction: column; gap: 0.15rem; }
+.skill-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-soft);
+}
+.skill-val { font-size: 0.8rem; color: var(--cream); }
+
+.work-item { margin-bottom: 0.85rem; }
+.work-title { font-size: 0.88rem; color: var(--cream); font-weight: 500; margin-bottom: 0.2rem; }
+.work-sub { font-size: 0.76rem; color: var(--cream-dim); line-height: 1.55; }
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  padding-top: 3.5vh;
+  border-top: 1px solid rgba(212,160,74,0.15);
+  margin-top: 3vh;
+}
+
+.enter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--walnut-shadow);
+  background: var(--gold);
+  border: none;
+  padding: 0.8rem 2.2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.enter-btn:hover { background: var(--cream); transform: translateX(4px); }
+
+.cv-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,160,74,0.3);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.cv-btn:hover { color: var(--gold); border-color: var(--gold); }
+
+@media (max-width: 760px) {
+  .about-gate { padding: 5vh 7vw 6vh; }
+  .about-top { grid-template-columns: 1fr; gap: 4vh; }
+  .skill-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem 1.2rem; }
+  .about-actions { flex-wrap: wrap; gap: 1.2rem; }
+}
 </style>
 </head>
 <body>
+
+<!-- ABOUT GATE -->
+<div class="about-gate" id="aboutGate">
+  <div class="about-top">
+
+    <!-- LEFT: identity + highlights -->
+    <div class="about-left">
+      <div class="about-eyebrow">game developer &middot; Bangkok, Thailand</div>
+      <h1 class="about-name">Natchaphon<br/><em>Sirisangsawang</em></h1>
+      <p class="about-role">
+        Intermediate C# Unity Developer at <strong>Extend Games</strong> &nbsp;&middot;&nbsp; Feb 2023 – present
+      </p>
+      <p class="about-bio">Unity C# with almost 4 years of experience — shipped games for PC, mobile, VR, blockchain, and Roblox. Fast learner who thrives on complex systems. Competed against professional studios and won. First Class Honours, GPA&nbsp;3.95.</p>
+      <div class="about-highlights">
+        <div class="about-hl">
+          <span class="hl-label">Nintendo Switch devkit &middot; Rising Star Award</span>
+          <span class="hl-sub">DEPA Game Accelerator Program Batch 2</span>
+        </div>
+        <div class="about-hl">
+          <span class="hl-label">1st place &middot; Global Game Jam 2022</span>
+          <span class="hl-sub">Bangkok (DPU) site, 48 hours</span>
+        </div>
+        <div class="about-hl">
+          <span class="hl-label">First Class Honours &middot; GPA 3.95 / 4.00</span>
+          <span class="hl-sub">Bachelor of Game and Interactive Media, Bangkok University</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: skills + professional work + education -->
+    <div class="about-right">
+      <div class="about-block">
+        <h3 class="about-block-title">Technical Skills</h3>
+        <div class="skill-grid">
+          <div class="skill-item"><span class="skill-label">Primary</span><span class="skill-val">Unity (C#)</span></div>
+          <div class="skill-item"><span class="skill-label">Languages</span><span class="skill-val">C#, Lua / Luau</span></div>
+          <div class="skill-item"><span class="skill-label">Multiplayer</span><span class="skill-val">Colyseus, client-server</span></div>
+          <div class="skill-item"><span class="skill-label">Platforms</span><span class="skill-val">PC &middot; Mobile &middot; WebGL &middot; VR &middot; Blockchain</span></div>
+          <div class="skill-item"><span class="skill-label">Tools</span><span class="skill-val">Git &middot; Unity Profiler &middot; Roblox Studio</span></div>
+          <div class="skill-item"><span class="skill-label">Other</span><span class="skill-val">AI-assisted dev &middot; Soneium / NFT</span></div>
+        </div>
+      </div>
+      <div class="about-block">
+        <h3 class="about-block-title">Professional Titles</h3>
+        <div class="work-item">
+          <div class="work-title">Morning Moon Village</div>
+          <div class="work-sub">Extend Games &middot; feature dev, Colyseus multiplayer, mobile port (Morning Moon Pocket on Soneium)</div>
+        </div>
+        <div class="work-item">
+          <div class="work-title">Metal Valley</div>
+          <div class="work-sub">Extend Games &middot; combat, entity spawning, navigation, resource systems</div>
+        </div>
+      </div>
+      <div class="about-block">
+        <h3 class="about-block-title">Education</h3>
+        <div class="work-item">
+          <div class="work-title">Bangkok University &middot; 2019 – 2022</div>
+          <div class="work-sub">Bachelor of Game and Interactive Media &middot; First Class Honours &middot; GPA 3.95 &middot; Hall of Fame</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="about-actions">
+    <button class="enter-btn" id="enterBtn">walk the archive &rarr;</button>
+    <a class="cv-btn" href="./Natchaphon_CV.docx" download>&darr; download CV</a>
+  </div>
+</div>
 
 <!-- LOADING SCREEN -->
 <div class="loader" id="loader">
@@ -1303,6 +1531,20 @@ try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e)
 <script src="sound.js"></script>
 <script src="scene-objects.js"></script>
 <script src="scene.js"></script>
+
+<script>
+(function () {
+  const gate = document.getElementById('aboutGate');
+  const btn  = document.getElementById('enterBtn');
+  // Lock scroll while gate is showing
+  document.body.style.overflow = 'hidden';
+  btn.addEventListener('click', function () {
+    gate.classList.add('leaving');
+    document.body.style.overflow = '';
+    setTimeout(function () { gate.style.display = 'none'; }, 800);
+  });
+}());
+</script>
 
 </body>
 </html>
