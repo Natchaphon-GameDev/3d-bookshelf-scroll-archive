@@ -584,8 +584,8 @@
 
   // Tweaks state
   const tweaks = {
-    warm: 1.0, cool: 0.6, dust: 1.0, bump: 1.0, grain: 0.10,
-    dof: 0.5, walk: 1.0,
+    warm: 0.65, cool: 1.10, dust: 0.95, bump: 0.55, grain: 0.05,
+    dof: 0.60, walk: 0.20,
     paletteIdx: 0
   };
   const PALETTES = [
