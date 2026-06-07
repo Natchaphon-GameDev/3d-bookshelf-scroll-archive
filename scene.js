@@ -586,11 +586,11 @@
   const tweaks = {
     warm: 0.65, cool: 1.10, dust: 0.95, bump: 0.55, grain: 0.05,
     dof: 0.60, walk: 0.20,
-    paletteIdx: 0
+    paletteIdx: 1
   };
   const PALETTES = [
     { name: 'walnut',   key: 0xffb066, fill: 0x4a6a9a, fog: 0x0a0604, floor: 0x0d0a08 },
-    { name: 'ash',      key: 0xc8c0a8, fill: 0x6a7a8a, fog: 0x080808, floor: 0x0a0a0a },
+    { name: 'ash',      key: 0xc8c0a7, fill: 0x6a7a8a, fog: 0x080808, floor: 0x0a0a0a },
     { name: 'ember',    key: 0xff7a3a, fill: 0x3a2870, fog: 0x100604, floor: 0x10060a },
     { name: 'iceberg',  key: 0x9ac8ff, fill: 0x2a5070, fog: 0x06080c, floor: 0x06080c },
   ];
