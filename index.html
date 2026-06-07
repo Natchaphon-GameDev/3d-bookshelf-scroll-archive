@@ -1560,11 +1560,35 @@ try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e)
 (function () {
   const gate = document.getElementById('aboutGate');
   const btn  = document.getElementById('enterBtn');
-  // Lock scroll while gate is showing
-  document.body.style.overflow = 'hidden';
-  btn.addEventListener('click', function () {
-    gate.classList.add('leaving');
+
+  function blockScroll(e) { e.preventDefault(); }
+  const SCROLL_KEYS = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight',
+                       ' ', 'PageDown', 'PageUp', 'Home', 'End'];
+  function blockKeys(e) {
+    if (SCROLL_KEYS.includes(e.key)) e.preventDefault();
+  }
+
+  function lock() {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('wheel',     blockScroll, { passive: false });
+    window.addEventListener('touchmove', blockScroll, { passive: false });
+    document.addEventListener('keydown',  blockKeys,  { capture: true });
+  }
+
+  function unlock() {
+    document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
+    window.removeEventListener('wheel',     blockScroll);
+    window.removeEventListener('touchmove', blockScroll);
+    document.removeEventListener('keydown',  blockKeys, { capture: true });
+  }
+
+  lock();
+
+  btn.addEventListener('click', function () {
+    unlock();
+    gate.classList.add('leaving');
     setTimeout(function () { gate.style.display = 'none'; }, 800);
   });
 }());
