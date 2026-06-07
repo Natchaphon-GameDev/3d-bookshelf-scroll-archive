@@ -971,12 +971,11 @@
     <div class="inner">
       <div class="eyebrow">— end of shelf —</div>
       <h2>thanks for walking the&nbsp;archive.</h2>
-      <p>I'm a solo developer making strange small games — usually about places that don't quite exist, or systems that quietly fall apart. Always around if you want to talk about cartridges, parser games, or how to ship a thing nobody asked for.</p>
+      <p>I'm a game developer and programmer who builds in Unity, Godot, and wherever else the idea fits. I've shipped games for mobile, VR, PC, and Roblox — and I'm always around if you want to talk engines, jam strategy, or how to finish a thing.</p>
       <div class="links">
-        <a href="#" onclick="event.preventDefault()">hello@masterport.dev</a>
-        <a href="#" onclick="event.preventDefault()">itch.io</a>
-        <a href="#" onclick="event.preventDefault()">github</a>
-        <a href="#" onclick="event.preventDefault()">bluesky</a>
+        <a href="mailto:nsp.gamedev@gmail.com">nsp.gamedev@gmail.com</a>
+        <a href="https://natchaphondev.itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="https://github.com/Natchaphon-GameDev" target="_blank" rel="noopener">github</a>
       </div>
       <button class="grid-btn" id="outro-grid">view as a flat list →</button>
     </div>
@@ -1058,124 +1057,136 @@
    ========================================================= */
 const PROJECTS = [
   {
-    id: 'masterport', title: 'Master Port', year: 2026, genre: 'parser adventure',
-    status: 'wip',
-    shortDescription: 'A text-and-tile salvage game set inside a derelict orbital docking station.',
-    fullDescription: 'You are the last harbourmaster of a station nobody can find anymore. Master Port is half text-adventure, half cartography puzzle — you read logs, chart the rooms onto a paper map, and slowly figure out which of your tenants are still alive. Built around a parser that forgives almost any phrasing, paired with a tile-based map you draw yourself.',
-    tech: ['TypeScript', 'Pixi.js', 'Custom Parser', 'Tauri'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'cartridge',
-    coverColor: '#d4a04a', accentColor: '#3a2817',
-    dustLevel: 0.0,
-    marginNote: "first parser i ever wrote without giving up halfway. ask me again in december."
-  },
-  {
-    id: 'neondrift', title: 'Neon Drift', year: 2025, genre: 'racing / vibes',
+    id: 'when', title: 'When', year: 2022, genre: 'puzzle / time control',
     status: 'released',
-    shortDescription: 'A slow-racing game where you cannot brake and the city keeps re-routing itself.',
-    fullDescription: 'Neon Drift is a one-button racer set in a procedurally folded city. You hold a direction, the road answers. No timer, no laps, no opponents — just the city remembering which streets you took last time and quietly changing the rest. Originally a 48-hour jam entry that grew into a six-month obsession.',
-    tech: ['Godot 4', 'GDScript', 'Custom Shaders'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'cd',
-    coverColor: '#c14b6e', accentColor: '#1a0a18',
+    shortDescription: 'A puzzle game where players manipulate time to solve stages and collect items for time travel.',
+    fullDescription: 'When is a puzzle game built around time control — players rewind, pause, and fast-forward the world to solve stages and gather items needed for time travel. Built in Unity, it was selected for the DEPA Game Accelerator Program Batch 2, winning a special prize: a Nintendo Switch developer kit and e-shop publishing rights. It was also a finalist in four categories at GAME TALENT SHOWCASE 2022.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://tatiya.itch.io/when', source: '#', devlog: '#' },
+    objectType: 'cartridge',
+    coverColor: '#4a7ab0', accentColor: '#0a1828',
     dustLevel: 0.05,
-    marginNote: "made for a friend's wedding-jam weekend. she still hasn't played it."
+    marginNote: "won a special prize at depa — a nintendo switch devkit. still feels unreal."
   },
   {
-    id: 'hollowtide', title: 'Hollow Tide', year: 2024, genre: 'sokoban / horror',
+    id: 'aibo', title: 'AiBō 「あいぼう」', year: 2022, genre: 'co-op puzzle',
     status: 'released',
-    shortDescription: 'A puzzle game about pushing boxes onto buttons in a lighthouse that is sinking.',
-    fullDescription: 'Hollow Tide takes the cleanest possible mechanic — push a box, fill a switch — and slowly drowns it. Water rises in real time while you puzzle; rooms reorder when you look away; the lighthouse keeper writes about you in his journal between levels. Released on itch and Steam in November 2024.',
-    tech: ['Godot 4', 'GDScript', 'Aseprite'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'box',
-    coverColor: '#3a6a8a', accentColor: '#0a1218',
-    dustLevel: 0.12,
-    marginNote: "thirteen-thousand wishlists. i still owe my mum a copy."
+    shortDescription: 'A two-player cooperative puzzle game built around the idea that two contrasting things can be compatible.',
+    fullDescription: 'AiBō was built in 48 hours at Global Game Jam 2022 at the DPU site in Bangkok, around the concept of contrast and compatibility. Two players control characters with opposing abilities and must work together to progress. It won 1st place at the Bangkok (DPU) site — the best 48-hour result of my career so far.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://tatiya.itch.io/aibo', source: '#', devlog: '#' },
+    objectType: 'cd',
+    coverColor: '#c8a84a', accentColor: '#1a1a2a',
+    dustLevel: 0.05,
+    marginNote: "first place at global game jam bangkok. forty-eight hours well spent."
   },
   {
-    id: 'staticgarden', title: 'Static Garden', year: 2023, genre: 'idle / generative',
+    id: 'coding-for-metaverse', title: 'Coding For Metaverse', year: 2022, genre: 'educational / simulation',
     status: 'released',
-    shortDescription: 'Cultivate a garden of CRT plants that grow from broadcast signal.',
-    fullDescription: 'Static Garden is a tiny idle game where every plant species is grown by tuning a virtual radio dial to a specific frequency. Tune wrong and you get weeds — tune precisely and you get rare hybrids whose seeds you can mail to other players via a six-digit share code. Currently the most-played thing I have ever made.',
-    tech: ['JavaScript', 'WebGL', 'IndexedDB'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'cartridge',
-    coverColor: '#6a8a4a', accentColor: '#1a2410',
-    dustLevel: 0.22,
-    marginNote: "the one i'm proudest of. nobody talks about it."
-  },
-  {
-    id: 'lastlibrary', title: 'Last Library', year: 2022, genre: 'walking sim',
-    status: 'released',
-    shortDescription: 'Walk through a library where every book is a different real game.',
-    fullDescription: 'A short anthology piece. Sixteen rooms, sixteen tiny playable scenes, each presented as a book on a shelf. Was originally a Bitsy hack-jam entry; rebuilt with a tablet-style touch UI when Apple Arcade kept hinting they wanted it. They never did, but the rebuild stuck.',
-    tech: ['Unity', 'C#', 'Bitsy (origin)'],
-    links: { play: '#', source: '#', devlog: '#' },
+    shortDescription: 'A Roblox-based learning platform that teaches children the fundamentals of game development.',
+    fullDescription: 'Coding For Metaverse was an internship project developed in partnership with DEPA and Future Skill. Built inside Roblox Studio, it functions as a structured learning platform where children explore game development concepts through interactive play. The goal was to give young players a real foothold in the industry — not just fun, but foundation.',
+    tech: ['Roblox Studio', 'Lua'],
+    links: { play: 'https://www.roblox.com/games/9562719523/Coding-for-Metaverse-v0-0-1', source: 'https://github.com/Natchaphon-GameDev/IFIT-Roblox-Project', devlog: 'https://codingformetaverse.com/' },
     objectType: 'tablet',
-    coverColor: '#b89060', accentColor: '#3a2410',
-    dustLevel: 0.32,
-    marginNote: "rebuilt it twice. should have stopped after the first time."
+    coverColor: '#4a9a6a', accentColor: '#0a2418',
+    dustLevel: 0.08,
+    marginNote: "an internship that became a real product. children actually used this."
   },
   {
-    id: 'pulse', title: 'Pulse', year: 2021, genre: 'rhythm action',
+    id: 'mridok', title: 'มฤดก (Mridok)', year: 2022, genre: 'educational / platformer',
     status: 'released',
-    shortDescription: 'A rhythm game you play with one finger and a heart-rate monitor.',
-    fullDescription: 'Pulse was made during lockdown, when I had a lot of time and a cheap wrist heart-rate monitor. The game reads your bpm in real time and re-times every track to match it; the better you focus, the slower it gets, until you are basically meditating to a drum-and-bass track. Won a "weirdest input device" award I am still pretty proud of.',
-    tech: ['Unity', 'C#', 'Web Bluetooth'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'disk',
-    coverColor: '#d65a4a', accentColor: '#2a0a08',
-    dustLevel: 0.45,
-    marginNote: "made because lockdown gave me a heart-rate monitor and nothing to do."
-  },
-  {
-    id: 'wirebound', title: 'Wirebound', year: 2020, genre: 'arcade / shooter',
-    status: 'released',
-    shortDescription: 'A twin-stick arcade game played entirely on a virtual cathode-ray screen.',
-    fullDescription: 'My only finished arcade game. Wirebound shipped on a real homemade cabinet at one local bar for fourteen months before the bar closed. It is a twin-stick shooter where your bullets are physical wires you have to drag back home before they tangle. Codebase is a horror but the cabinet was a beauty.',
-    tech: ['Love2D', 'Lua', 'Raspberry Pi'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'cabinet',
-    coverColor: '#a04830', accentColor: '#2a1208',
-    dustLevel: 0.58,
-    marginNote: "the bar is gone now. the cabinet lives in my parents' garage."
-  },
-  {
-    id: 'mothlight', title: 'Mothlight', year: 2019, genre: 'puzzle / atmospheric',
-    status: 'released',
-    shortDescription: 'A point-and-click about following a moth through a house at dusk.',
-    fullDescription: 'Mothlight is small — maybe forty minutes — and almost entirely silent. You play as the moth, drawn from lamp to lamp through someone else\'s slowly emptying house. The house tells a story, badly, in dust patterns and unfinished crosswords. Boxed copies were sold at a single zine fair in 2019.',
-    tech: ['HaxeFlixel', 'Haxe', 'Aseprite'],
-    links: { play: '#', source: '#', devlog: '#' },
-    objectType: 'box',
-    coverColor: '#8a7044', accentColor: '#2a2010',
-    dustLevel: 0.7,
-    marginNote: "sold seventeen boxed copies at a zine fair. i still have one."
-  },
-  {
-    id: 'faultline', title: 'Faultline', year: 2017, genre: 'experimental',
-    status: 'abandoned',
-    shortDescription: 'An unreleased text-adventure about a city built directly on a fault line.',
-    fullDescription: 'Faultline is the project I learned to ship by failing to ship. Two years of writing, four prototypes, no game. The scroll that survives is one playable chapter (about an hour) and a folder full of notebooks I should probably digitise one day. Left here partly as a warning and partly as a thank-you to the people who play-tested it.',
-    tech: ['Twine', 'JavaScript', '… patience'],
-    links: { source: '#', devlog: '#' },
+    shortDescription: 'A platformer about Thai art history, built in 72 hours for IFIT Game Jam 2022.',
+    fullDescription: 'มฤดก (Mridok, meaning "Heritage") was made for IFIT Game Jam 2022 under the "Back to the Future" theme. It starts as a straightforward 2D platformer and gradually opens into a 2.5D space as players progress through levels drawn from Thai art history. Researching the content took longer than building the engine — and it was worth it.',
+    tech: ['Unity', 'C#', 'Aseprite'],
+    links: { play: 'https://natchaphondev.itch.io/ifitjam2022', source: '#', devlog: '#' },
     objectType: 'scroll',
-    coverColor: '#a07040', accentColor: '#3a2410',
-    dustLevel: 0.85,
-    marginNote: "two years. four prototypes. nothing finished. i learned more here than anywhere else."
+    coverColor: '#c8a040', accentColor: '#3a2810',
+    dustLevel: 0.1,
+    marginNote: "thai art history in a platformer. harder to research than to code."
   },
   {
-    id: 'firstcause', title: 'First Cause', year: 2015, genre: 'prototype',
-    status: 'prototype',
-    shortDescription: 'The first thing I ever finished — a Pico-8 cart about a falling rock.',
-    fullDescription: 'First Cause is forty-six lines of Lua and one sound effect. You are a rock, you fall, eventually you stop falling. I made it the week I bought a Pico-8 license and have never quite topped it for ratio of joy-per-line-of-code. Lives here as a fossil, embedded in amber, more or less how I remember it.',
-    tech: ['Pico-8', 'Lua'],
-    links: { play: '#' },
+    id: 'kaid', title: 'Kai Defend (KAID)', year: 2022, genre: 'strategy / tower defense',
+    status: 'released',
+    shortDescription: 'A mobile tower defense game with endless waves and an RNG card-draw mechanic for turrets.',
+    fullDescription: 'KAID is a mobile RTS tower defense game for Android and iOS. Players draw turret cards at random and place them strategically to survive endless enemy waves, climbing a global leaderboard. The card-draw mechanic forces improvisation — you never get exactly the turrets you want, and that tension is the game.',
+    tech: ['Unity', 'C#', 'Android', 'iOS'],
+    links: { play: 'https://natchaphondev.itch.io/kaid', source: '#', devlog: '#' },
+    objectType: 'box',
+    coverColor: '#6a4a8a', accentColor: '#180a28',
+    dustLevel: 0.12,
+    marginNote: "tower defense is the genre i keep returning to and can't fully explain."
+  },
+  {
+    id: 'stackup', title: 'STACK UP', year: 2022, genre: 'VR / mini-game',
+    status: 'released',
+    shortDescription: 'A VR mini-game using Oculus hand tracking — no controllers, just your hands.',
+    fullDescription: 'STACK UP uses the Oculus Hand Tracking System to let players interact entirely without controllers. The game presents rapid mini-game tasks; completing them faster earns a higher place on the leaderboard. Getting people to try it at showcases was easy — they all tried to poke the objects in real life first.',
+    tech: ['Unity', 'C#', 'Oculus SDK'],
+    links: { play: 'https://natchaphondev.itch.io/stack-up', source: '#', devlog: '#' },
+    objectType: 'disk',
+    coverColor: '#7ab0d0', accentColor: '#0a1828',
+    dustLevel: 0.12,
+    marginNote: "built for oculus hand tracking. most people tried to poke it in real life."
+  },
+  {
+    id: 'twoarmies', title: 'Twoarmies', year: 2022, genre: 'strategy / RTS / multiplayer',
+    status: 'released',
+    shortDescription: 'A 4-player RTS on Steam — destroy the opponent\'s base before they destroy yours.',
+    fullDescription: 'Twoarmies is a real-time strategy game supporting up to four players via Steam. Each player commands an army and tries to demolish the opposing base, with a leaderboard tracking results across sessions. Building the Steamworks multiplayer integration was the hardest part — balancing it was the most fun.',
+    tech: ['Unity', 'C#', 'Steamworks'],
+    links: { play: 'https://natchaphondev.itch.io/twoarmies', source: '#', devlog: '#' },
+    objectType: 'cabinet',
+    coverColor: '#b03a30', accentColor: '#2a0808',
+    dustLevel: 0.18,
+    marginNote: "four-player steam rts. the leaderboard has my name at the top from testing."
+  },
+  {
+    id: 'zombie-hunter', title: 'Zombie Hunter', year: 2021, genre: 'action / top-down shooter',
+    status: 'released',
+    shortDescription: 'A top-down survival shooter where a finite-state machine drives every enemy and ally.',
+    fullDescription: 'Zombie Hunter is a survival top-down shooter with an FSM-driven AI system controlling both enemy zombies and friendly units. The goal is simple — survive as many waves as possible — but the AI\'s state transitions make each wave feel different. My first serious attempt at enemy AI architecture.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://natchaphondev.itch.io/zombie-hunter', source: '#', devlog: '#' },
+    objectType: 'cartridge',
+    coverColor: '#4a7a40', accentColor: '#0a1808',
+    dustLevel: 0.3,
+    marginNote: "finite-state machines. the enemies turned out smarter than i expected."
+  },
+  {
+    id: 'a-taxi', title: 'A Taxi', year: 2021, genre: 'simulation / racing',
+    status: 'released',
+    shortDescription: 'A Crazy Taxi-inspired driving sim — pick up passengers, earn money, beat the clock.',
+    fullDescription: 'A Taxi is a Crazy Taxi-inspired driving simulation where players navigate a city, picking up passengers and delivering them before time runs out. Each delivery earns money; the leaderboard measures total earnings. It is considerably less chaotic than its inspiration, which was both a design choice and a technical limitation at the time.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://natchaphondev.itch.io/a-taxi', source: '#', devlog: '#' },
+    objectType: 'cd',
+    coverColor: '#d4a020', accentColor: '#2a1a00',
+    dustLevel: 0.35,
+    marginNote: "crazy taxi was the reference. mine is considerably less crazy."
+  },
+  {
+    id: 'time2race', title: 'Time2Race', year: 2021, genre: 'racing',
+    status: 'released',
+    shortDescription: 'A 3D lap-racing game — and the first 3D game I ever made.',
+    fullDescription: 'Time2Race is a straightforward 3D racing game: complete the required laps in the shortest time possible. It was the first 3D project I built from scratch, and most of what I know about Unity\'s physics system — specifically what not to do in FixedUpdate — I learned here. The car handles better than it has any right to.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://natchaphondev.itch.io/time2race', source: '#', devlog: '#' },
+    objectType: 'box',
+    coverColor: '#4060b0', accentColor: '#0a0820',
+    dustLevel: 0.5,
+    marginNote: "first 3D game. the physics were held together with hope and FixedUpdate."
+  },
+  {
+    id: 'spaceship', title: 'SpaceShip', year: 2021, genre: 'action / shooter',
+    status: 'released',
+    shortDescription: 'A 2D space shooter across 4 difficulty levels — the first Unity game I ever made.',
+    fullDescription: 'SpaceShip is a 2D space shooter where players destroy enemy ships and survive as long as possible, across four escalating difficulty levels. It was the first game I ever built in Unity — the project where I learned how a scene, a prefab, and a script actually fit together. Everything since has been a consequence of this one.',
+    tech: ['Unity', 'C#'],
+    links: { play: 'https://natchaphondev.itch.io/spaceship', source: '#', devlog: '#' },
     objectType: 'fossil',
-    coverColor: '#a08858', accentColor: '#3a2410',
-    dustLevel: 1.0,
-    marginNote: "forty-six lines. one sound effect. still the best thing i ever made."
+    coverColor: '#303878', accentColor: '#08081a',
+    dustLevel: 0.7,
+    marginNote: "first unity game. four difficulty levels. everything since came from this one."
   },
 ];
 
