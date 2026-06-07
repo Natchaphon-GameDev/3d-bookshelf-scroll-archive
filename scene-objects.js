@@ -743,6 +743,191 @@ function makeProjectProps(p, x, baseY) {
       props.add(card);
       break;
     }
+    case 'when': {
+      // hourglass — time control game
+      const sandMat = flat(0xd4c89a);
+      const frameMat = flat(0x7a5830);
+      const bCone = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.26, 8), sandMat);
+      bCone.position.set(x + 1.6, SHELF_Y + 0.16, 0.6);
+      props.add(bCone);
+      const tCone = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.26, 8), sandMat);
+      tCone.rotation.x = Math.PI;
+      tCone.position.set(x + 1.6, SHELF_Y + 0.40, 0.6);
+      props.add(tCone);
+      for (const sy of [0.04, 0.52]) {
+        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.04, 12), frameMat);
+        rim.position.set(x + 1.6, SHELF_Y + sy, 0.6);
+        props.add(rim);
+      }
+      break;
+    }
+    case 'aibo': {
+      // two small contrasting figures side by side — co-op / duality
+      for (const [dx, col] of [[-0.22, 0xf4e8d0], [0.22, 0x1a1a2a]]) {
+        const body = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.30, 0.22), flat(col));
+        body.position.set(x + 1.55 + dx, SHELF_Y + 0.16, 0.6);
+        props.add(body);
+        const head = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.18, 0.18), flat(col));
+        head.position.set(x + 1.55 + dx, SHELF_Y + 0.38, 0.6);
+        props.add(head);
+      }
+      break;
+    }
+    case 'coding-for-metaverse': {
+      // tiny laptop — educational / coding game
+      const laptopBase = new THREE.Mesh(new THREE.BoxGeometry(0.80, 0.06, 0.55), flat(0x4a9a6a));
+      laptopBase.position.set(x + 1.5, SHELF_Y + 0.04, 0.6);
+      props.add(laptopBase);
+      const laptopScreen = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.50, 0.04), flat(0x1a2a1a));
+      laptopScreen.position.set(x + 1.5, SHELF_Y + 0.34, 0.36);
+      laptopScreen.rotation.x = -0.38;
+      props.add(laptopScreen);
+      const screenGlow = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.62, 0.38),
+        new THREE.MeshBasicMaterial({ color: 0x4afa8a, transparent: true, opacity: 0.55 })
+      );
+      screenGlow.position.set(x + 1.5, SHELF_Y + 0.34, 0.38);
+      screenGlow.rotation.x = -0.38;
+      props.add(screenGlow);
+      break;
+    }
+    case 'mridok': {
+      // open book — Thai art history
+      const pageL = new THREE.Mesh(new THREE.BoxGeometry(0.60, 0.04, 0.80), flat(0xf0d890));
+      pageL.position.set(x + 1.22, SHELF_Y + 0.04, 0.55);
+      pageL.rotation.z = 0.24;
+      props.add(pageL);
+      const pageR = new THREE.Mesh(new THREE.BoxGeometry(0.60, 0.04, 0.80), flat(0xe8d080));
+      pageR.position.set(x + 1.72, SHELF_Y + 0.04, 0.55);
+      pageR.rotation.z = -0.24;
+      props.add(pageR);
+      const spine = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, 0.82), flat(0xc8a040));
+      spine.position.set(x + 1.47, SHELF_Y + 0.06, 0.55);
+      props.add(spine);
+      break;
+    }
+    case 'kaid': {
+      // mini tower + gun barrel — tower defense
+      const towerBase = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.26, 0.20, 8), flat(0x5a4a8a));
+      towerBase.position.set(x - 1.6, SHELF_Y + 0.10, 0.6);
+      props.add(towerBase);
+      const towerBody = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.38, 8), flat(0x6a5aaa));
+      towerBody.position.set(x - 1.6, SHELF_Y + 0.38, 0.6);
+      props.add(towerBody);
+      const battlements = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.17, 0.12, 8), flat(0x7a6aba));
+      battlements.position.set(x - 1.6, SHELF_Y + 0.61, 0.6);
+      props.add(battlements);
+      const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.30, 6), flat(0x2a1c10));
+      barrel.position.set(x - 1.43, SHELF_Y + 0.55, 0.6);
+      barrel.rotation.z = -Math.PI / 2;
+      props.add(barrel);
+      break;
+    }
+    case 'stackup': {
+      // VR headset lying on shelf
+      const visor = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.28, 0.30), flat(0x1a2030));
+      visor.position.set(x + 1.5, SHELF_Y + 0.16, 0.6);
+      props.add(visor);
+      for (const dx of [-0.16, 0.16]) {
+        const eyeLens = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.08, 0.08, 0.08, 16),
+          new THREE.MeshPhongMaterial({ color: 0x7ab0d0, transparent: true, opacity: 0.5, shininess: 80 })
+        );
+        eyeLens.rotation.x = Math.PI / 2;
+        eyeLens.position.set(x + 1.5 + dx, SHELF_Y + 0.16, 0.76);
+        props.add(eyeLens);
+      }
+      const strap = new THREE.Mesh(new THREE.BoxGeometry(1.10, 0.08, 0.06), flat(0x2a3040));
+      strap.position.set(x + 1.5, SHELF_Y + 0.16, 0.44);
+      props.add(strap);
+      break;
+    }
+    case 'twoarmies': {
+      // two opposing chess pawns
+      for (const [dx, col] of [[-0.28, 0xf4e8d0], [0.28, 0x1a0808]]) {
+        const pBase = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.08, 10), flat(col));
+        pBase.position.set(x + 1.55 + dx, SHELF_Y + 0.04, 0.6);
+        props.add(pBase);
+        const pStem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.09, 0.20, 10), flat(col));
+        pStem.position.set(x + 1.55 + dx, SHELF_Y + 0.18, 0.6);
+        props.add(pStem);
+        const pHead = new THREE.Mesh(new THREE.SphereGeometry(0.10, 10, 8), flat(col));
+        pHead.position.set(x + 1.55 + dx, SHELF_Y + 0.36, 0.6);
+        props.add(pHead);
+      }
+      break;
+    }
+    case 'zombie-hunter': {
+      // scattered bullet casings
+      for (let i = 0; i < 5; i++) {
+        const casing = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.14, 8), flat(0xc8a840));
+        const a = i * 1.26;
+        casing.position.set(
+          x - 1.55 + Math.cos(a) * 0.35,
+          SHELF_Y + 0.07,
+          0.55 + Math.sin(a) * 0.22
+        );
+        casing.rotation.z = Math.cos(i * 2.1) * 0.7;
+        casing.rotation.x = Math.sin(i * 1.7) * 0.4;
+        props.add(casing);
+      }
+      break;
+    }
+    case 'a-taxi': {
+      // tiny boxy taxi car
+      const carBody = new THREE.Mesh(new THREE.BoxGeometry(0.80, 0.22, 0.38), flat(0xd4a020));
+      carBody.position.set(x + 1.45, SHELF_Y + 0.13, 0.65);
+      props.add(carBody);
+      const cabin = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.18, 0.35), flat(0xc89010));
+      cabin.position.set(x + 1.42, SHELF_Y + 0.30, 0.65);
+      props.add(cabin);
+      for (const [wx, wz] of [[-0.28, 0.19], [0.28, 0.19], [-0.28, -0.19], [0.28, -0.19]]) {
+        const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.07, 12), flat(0x1a120a));
+        wheel.rotation.z = Math.PI / 2;
+        wheel.position.set(x + 1.45 + wx, SHELF_Y + 0.07, 0.65 + wz);
+        props.add(wheel);
+      }
+      break;
+    }
+    case 'time2race': {
+      // chequered flag on a pole + small trophy
+      const flagPole = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.70, 8), flat(0x2a1c10));
+      flagPole.position.set(x - 1.6, SHELF_Y + 0.35, 0.6);
+      props.add(flagPole);
+      const flagWhite = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.18, 0.01), flat(0xf4e8d0));
+      flagWhite.position.set(x - 1.50, SHELF_Y + 0.64, 0.6);
+      props.add(flagWhite);
+      const flagBlack = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.18, 0.01), flat(0x1a120a));
+      flagBlack.position.set(x - 1.72, SHELF_Y + 0.64, 0.6);
+      props.add(flagBlack);
+      const cupBase = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.10, 0.08, 10), flat(0xd4a04a));
+      cupBase.position.set(x + 1.6, SHELF_Y + 0.04, 0.6);
+      props.add(cupBase);
+      const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.08, 0.20, 10), flat(0xd4a04a));
+      cup.position.set(x + 1.6, SHELF_Y + 0.18, 0.6);
+      props.add(cup);
+      break;
+    }
+    case 'spaceship': {
+      // tiny rocket — first game ever made
+      const rBody = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.50, 8), flat(0xd4d0c8));
+      rBody.position.set(x - 1.6, SHELF_Y + 0.30, 0.6);
+      props.add(rBody);
+      const rNose = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.20, 8), flat(0x303878));
+      rNose.position.set(x - 1.6, SHELF_Y + 0.65, 0.6);
+      props.add(rNose);
+      const rBase = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.10, 8), flat(0x303878));
+      rBase.position.set(x - 1.6, SHELF_Y + 0.06, 0.6);
+      props.add(rBase);
+      for (let i = 0; i < 3; i++) {
+        const fin = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.20, 0.04), flat(0x303878));
+        const a = (i / 3) * Math.PI * 2;
+        fin.position.set(x - 1.6 + Math.cos(a) * 0.14, SHELF_Y + 0.14, 0.6 + Math.sin(a) * 0.14);
+        fin.rotation.y = a;
+        props.add(fin);
+      }
+      break;
+    }
     case 'mmv': {
       // watering can (farming/life sim)
       const canBody = new THREE.Mesh(
