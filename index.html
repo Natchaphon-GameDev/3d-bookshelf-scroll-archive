@@ -1281,9 +1281,33 @@
 
 <script>
 /* =========================================================
-   PROJECT DATA — 10 entries, 2015 → 2026
+   PROJECT DATA — 13 entries, 2021 → 2024
    ========================================================= */
 const PROJECTS = [
+  {
+    id: 'automata', title: 'Automata', year: 2024, genre: 'action / RPG',
+    status: 'released',
+    shortDescription: 'A commercial action title at Extend Games — combat, entity systems, navigation, and resource mechanics.',
+    fullDescription: 'Automata is a commercial title developed at Extend Games where I shipped core gameplay systems from scratch: combat, entity spawning, enemy navigation, and resource gathering. Delivered on schedule as part of a cross-functional team integrating front-end gameplay, back-end APIs, and blockchain infrastructure.',
+    tech: ['Unity', 'C#'],
+    links: { play: '#', source: '#', devlog: '#' },
+    objectType: 'cartridge',
+    coverColor: '#7a4a30', accentColor: '#1a0808',
+    dustLevel: 0.0,
+    marginNote: "every system from combat to resource gathering. shipped on schedule."
+  },
+  {
+    id: 'mmv', title: 'Morning Moon Village', year: 2023, genre: 'life sim / multiplayer',
+    status: 'released',
+    shortDescription: 'A live-service farming life sim — Colyseus multiplayer, player shops, and a mobile blockchain port.',
+    fullDescription: 'Morning Moon Village is a live-service farming and social sim built at Extend Games. I joined mid-project after most of the team moved on, taking on feature development and bug fixes, building the full Colyseus multiplayer system (shared maps, player shops, in-game chat), optimising the remote-player architecture with Unity Profiler, and later porting the entire WebGL build to mobile as Morning Moon Pocket on the Soneium chain.',
+    tech: ['Unity', 'C#', 'Colyseus', 'Soneium'],
+    links: { play: '#', source: '#', devlog: '#' },
+    objectType: 'tablet',
+    coverColor: '#5a9a6a', accentColor: '#0a2418',
+    dustLevel: 0.0,
+    marginNote: "rebuilt the multiplayer with colyseus. then ported the whole thing to mobile blockchain."
+  },
   {
     id: 'when', title: 'When', year: 2022, genre: 'puzzle / time control',
     status: 'released',

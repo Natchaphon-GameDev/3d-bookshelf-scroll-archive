@@ -743,6 +743,87 @@ function makeProjectProps(p, x, baseY) {
       props.add(card);
       break;
     }
+    case 'mmv': {
+      // watering can (farming/life sim)
+      const canBody = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.18, 0.22, 0.38, 10),
+        flat(0x5a9a6a)
+      );
+      canBody.position.set(x - 1.6, SHELF_Y + 0.2, 0.6);
+      props.add(canBody);
+      const spout = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.04, 0.06, 0.32, 8),
+        flat(0x4a8a5a)
+      );
+      spout.position.set(x - 1.38, SHELF_Y + 0.28, 0.6);
+      spout.rotation.z = -0.55;
+      props.add(spout);
+      const canHandle = new THREE.Mesh(
+        new THREE.TorusGeometry(0.12, 0.025, 6, 10, Math.PI),
+        flat(0x3a7a4a)
+      );
+      canHandle.position.set(x - 1.6, SHELF_Y + 0.28, 0.6);
+      canHandle.rotation.z = Math.PI / 2;
+      props.add(canHandle);
+      // small potted plant beside it
+      const pot = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.14, 0.10, 0.22, 7),
+        flat(0x8a5430)
+      );
+      pot.position.set(x + 1.6, SHELF_Y + 0.12, 0.7);
+      props.add(pot);
+      const leaf = new THREE.Mesh(
+        new THREE.ConeGeometry(0.1, 0.38, 5),
+        flat(0x6a9a4a)
+      );
+      leaf.position.set(x + 1.6, SHELF_Y + 0.42, 0.7);
+      props.add(leaf);
+      break;
+    }
+    case 'automata': {
+      // gear sitting flat on the shelf
+      const gearBody = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.30, 0.30, 0.08, 8),
+        flat(0xb8b4aa)
+      );
+      gearBody.position.set(x + 1.55, SHELF_Y + 0.05, 0.65);
+      gearBody.rotation.y = Math.PI / 8;
+      props.add(gearBody);
+      for (let i = 0; i < 8; i++) {
+        const tooth = new THREE.Mesh(
+          new THREE.BoxGeometry(0.1, 0.08, 0.11),
+          flat(0xa0a098)
+        );
+        const a = (i / 8) * Math.PI * 2;
+        tooth.position.set(
+          x + 1.55 + Math.cos(a) * 0.34,
+          SHELF_Y + 0.05,
+          0.65 + Math.sin(a) * 0.34
+        );
+        tooth.rotation.y = a;
+        props.add(tooth);
+      }
+      const gearHole = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.09, 0.09, 0.10, 10),
+        flat(0x1a120a)
+      );
+      gearHole.position.set(x + 1.55, SHELF_Y + 0.05, 0.65);
+      props.add(gearHole);
+      // small bolt next to it
+      const bolt = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.05, 0.05, 0.18, 6),
+        flat(0xc8c4b8)
+      );
+      bolt.position.set(x - 1.55, SHELF_Y + 0.09, 0.55);
+      props.add(bolt);
+      const boltHead = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.09, 0.09, 0.06, 6),
+        flat(0xb8b4aa)
+      );
+      boltHead.position.set(x - 1.55, SHELF_Y + 0.19, 0.55);
+      props.add(boltHead);
+      break;
+    }
   }
 
   return props;
